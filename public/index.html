@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catalyst Canton - Release Notes | Documentation</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: #fff;
+    }
+
+    /* Header */
+    .header {
+      background: #1a1a2e;
+      color: #fff;
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: #fff;
+    }
+
+    .header-logo svg {
+      width: 32px;
+      height: 32px;
+    }
+
+    .header-logo span {
+      font-weight: 600;
+      font-size: 18px;
+    }
+
+    .header-links {
+      display: flex;
+      gap: 24px;
+      font-size: 14px;
+    }
+
+    .header-links a {
+      color: #a0a0c0;
+      text-decoration: none;
+    }
+
+    .header-links a:hover {
+      color: #fff;
+    }
+
+    /* Layout */
+    .layout {
+      display: flex;
+      min-height: calc(100vh - 56px);
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 280px;
+      background: #f8f9fa;
+      border-right: 1px solid #e0e0e0;
+      padding: 24px 0;
+      overflow-y: auto;
+      position: sticky;
+      top: 56px;
+      height: calc(100vh - 56px);
+    }
+
+    .sidebar-section {
+      margin-bottom: 8px;
+    }
+
+    .sidebar-title {
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      color: #666;
+      padding: 8px 24px;
+      letter-spacing: 0.5px;
+    }
+
+    .sidebar-nav {
+      list-style: none;
+    }
+
+    .sidebar-nav li {
+      margin: 0;
+    }
+
+    .sidebar-nav a {
+      display: block;
+      padding: 8px 24px;
+      color: #444;
+      text-decoration: none;
+      font-size: 14px;
+      border-left: 3px solid transparent;
+    }
+
+    .sidebar-nav a:hover {
+      background: #e8e8e8;
+    }
+
+    .sidebar-nav a.active {
+      background: #e3f2fd;
+      border-left-color: #1976d2;
+      color: #1976d2;
+      font-weight: 500;
+    }
+
+    .sidebar-nav .nested {
+      padding-left: 16px;
+    }
+
+    .sidebar-nav .nested a {
+      font-size: 13px;
+      color: #666;
+    }
+
+    /* Version dropdown */
+    .version-select {
+      margin: 16px 24px;
+      padding: 8px 12px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 14px;
+      width: calc(100% - 48px);
+      background: #fff;
+    }
+
+    /* Main content */
+    .main-content {
+      flex: 1;
+      padding: 40px 60px;
+      max-width: 900px;
+    }
+
+    .main-content h1 {
+      font-size: 32px;
+      color: #1a1a2e;
+      margin-bottom: 32px;
+      font-weight: 600;
+    }
+
+    .main-content h2 {
+      font-size: 24px;
+      color: #333;
+      margin: 32px 0 16px 0;
+      font-weight: 600;
+    }
+
+    .main-content ul {
+      list-style: none;
+      margin: 0;
+    }
+
+    .main-content li {
+      margin-bottom: 20px;
+      padding-left: 20px;
+      position: relative;
+    }
+
+    .main-content li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: #1976d2;
+      font-weight: bold;
+    }
+
+    .main-content strong {
+      color: #1a1a2e;
+    }
+
+    .main-content a {
+      color: #1976d2;
+      text-decoration: none;
+    }
+
+    .main-content a:hover {
+      text-decoration: underline;
+    }
+
+    .read-more {
+      display: inline-block;
+      margin-top: 4px;
+      font-size: 14px;
+    }
+
+    /* Footer */
+    .footer {
+      background: #f8f9fa;
+      border-top: 1px solid #e0e0e0;
+      padding: 24px;
+      text-align: center;
+      font-size: 13px;
+      color: #666;
+    }
+
+    /* Agent-in-a-Box Widget placeholder */
+    .widget-container {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 1000;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .sidebar {
+        display: none;
+      }
+      .main-content {
+        padding: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <a href="/" class="header-logo">
+      <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="32" height="32" rx="6" fill="#3b82f6"/>
+        <path d="M16 8L24 12V20L16 24L8 20V12L16 8Z" stroke="white" stroke-width="2" fill="none"/>
+        <circle cx="16" cy="16" r="4" fill="white"/>
+      </svg>
+      <span>Catalyst Blockchain Manager</span>
+    </a>
+    <div class="header-links">
+      <a href="#">Feature Request</a>
+      <a href="#">Documentation Questions</a>
+      <a href="#">Bug Report</a>
+    </div>
+  </header>
+
+  <div class="layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <select class="version-select">
+        <option>Canton 1.11</option>
+        <option>Canton 1.10</option>
+        <option>Canton 1.9</option>
+        <option>Canton 1.8</option>
+      </select>
+
+      <div class="sidebar-section">
+        <div class="sidebar-title">Getting Started</div>
+        <ul class="sidebar-nav">
+          <li><a href="#">Canton Introduction</a></li>
+          <li><a href="#">Component Overview</a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-title">Network & Node Management</div>
+        <ul class="sidebar-nav">
+          <li><a href="#">Domains</a></li>
+          <li><a href="#">Participants</a></li>
+          <li><a href="#">Applications</a></li>
+          <li><a href="#">Collections</a></li>
+          <li><a href="#">REST API</a></li>
+          <li><a href="#">Networking</a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-title">Validator Management</div>
+        <ul class="sidebar-nav">
+          <li><a href="#">Create Validator</a></li>
+          <li><a href="#">Validator Backups</a></li>
+          <li><a href="#">Identity Scheduling</a></li>
+          <li><a href="#">Logging Configuration</a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-title">Operations Guide</div>
+        <ul class="sidebar-nav">
+          <li><a href="#">Installation</a></li>
+          <li><a href="#">Licenses</a></li>
+          <li><a href="#">Disaster Recovery</a></li>
+          <li><a href="#">Okta Setup</a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-title">Resources</div>
+        <ul class="sidebar-nav">
+          <li><a href="#" class="active">Release Notes</a></li>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Support</a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <h1>Catalyst Canton - Version 1.11 Release Notes</h1>
+
+      <h2>What's New</h2>
+      <ul>
+        <li>
+          <strong>Validator Backup and Restore</strong> - Configure database backup schedules through Catalyst and restore validators with ease.
+          <a href="#" class="read-more">Read more &rarr;</a>
+        </li>
+        <li>
+          <strong>Identity Backups Scheduling</strong> - Configure the identity backup flow through a schedule. These backups are now also visible in the Catalyst UI.
+          <a href="#" class="read-more">Read more &rarr;</a>
+        </li>
+        <li>
+          <strong>Configure External DB</strong> - Create validators configured for external database services (e.g., RDS, Cloud SQL).
+        </li>
+        <li>
+          <strong>User Roles for DAML Versions</strong> - Added roles for Participant users in new DAML versions on the Edit User UI.
+        </li>
+        <li>
+          <strong>Enhanced Monitoring Dashboard</strong> - New metrics and visualizations for validator health and network status.
+        </li>
+        <li>
+          <strong>Improved API Documentation</strong> - Comprehensive OpenAPI specs with interactive examples.
+          <a href="#" class="read-more">Read more &rarr;</a>
+        </li>
+      </ul>
+
+      <h2>Bug Fixes</h2>
+      <ul>
+        <li>
+          <strong>Connection Timeout Issues</strong> - Fixed intermittent connection timeouts during high-load scenarios.
+        </li>
+        <li>
+          <strong>UI Rendering</strong> - Resolved display issues on mobile devices and smaller screens.
+        </li>
+        <li>
+          <strong>Certificate Validation</strong> - Improved TLS certificate handling for custom CA configurations.
+        </li>
+      </ul>
+
+      <h2>Known Issues</h2>
+      <ul>
+        <li>
+          Large file uploads (&gt;100MB) may timeout on slower connections. Workaround: Use chunked upload API.
+        </li>
+        <li>
+          Safari browser may show intermittent WebSocket disconnections. Fix scheduled for 1.12.
+        </li>
+      </ul>
+    </main>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    &copy; 2024 IntellectEU. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
+  </footer>
+
+  <!-- Agent-in-a-Box Widget -->
+  <div class="widget-container" id="agent-widget"></div>
+
+  <!--
+    TODO: Add Agent-in-a-Box widget script here
+    <script src="https://your-agentinabox-instance.railway.app/widget.js"></script>
+    <script>
+      AgentWidget.init({
+        container: '#agent-widget',
+        agentId: 'your-agent-id',
+        apiBaseUrl: 'https://your-agentinabox-instance.railway.app'
+      });
+    </script>
+  -->
+</body>
+</html>
