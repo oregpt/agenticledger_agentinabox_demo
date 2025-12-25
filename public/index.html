@@ -369,18 +369,12 @@
   </footer>
 
   <!-- Agent-in-a-Box Widget -->
-  <div class="widget-container" id="agent-widget"></div>
-
-  <!--
-    TODO: Add Agent-in-a-Box widget script here
-    <script src="https://your-agentinabox-instance.railway.app/widget.js"></script>
-    <script>
-      AgentWidget.init({
-        container: '#agent-widget',
-        agentId: 'your-agent-id',
-        apiBaseUrl: 'https://your-agentinabox-instance.railway.app'
-      });
-    </script>
-  -->
+  <script src="https://agentaincadmin-production.up.railway.app/widget.js"></script>
+  <script>
+    AgentWidget.init({
+      agentId: 'default-agent',
+      apiBaseUrl: 'https://agentaincadmin-production.up.railway.app'
+    });
+  </script>
 </body>
 </html>
